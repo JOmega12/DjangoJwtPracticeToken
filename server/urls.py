@@ -16,7 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import re_path
+from . import views
+
+# why are we using re_path rather than path? What does the 2nd argument do? 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
+    re_path('login', views.login),
+    re_path('signup', views.signup),
+    re_path('test_token', views.test_token),
 ]

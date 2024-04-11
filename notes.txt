@@ -26,4 +26,67 @@ which setsup the database for this app
 then
 - python manage.py runserver
 
-this the basic of starting a django backend
+this the basic of starting a django backend boilerplate
+
+
+in the gitignor db.sqlite3 and venv/ file
+
+
+NEXT: install djangorestframework and authenticator module
+
+- pip install djangorestframework  
+MAKE SURE THAT VENV ICON IS STILL THERE
+
+go to settings.py
+
+add in 
+    'rest_framework',
+    'rest_framework.authtoken',
+
+
+NEXT CREATE APIS FOR SIGNUP AND LOGIN
+
+add views.py into the server folder
+allows python code to call api whenever it is called 
+
+Add this into views:
+   from rest_framework.decorators import api_view
+   from rest_framework.response import Response
+
+   @api_view(['POST'])
+   def login(request):
+      return Response({})
+
+   @api_view(['POST'])
+   def signup(request):
+      return Response({})
+
+   @api_view(['POST'])
+   def test_token(request):
+      return Response({})
+
+
+Then go to urls.py and add the urls of the api in urlpatterns
+-     re_path('login', views.login),
+    re_path('signup', views.signup),
+    re_path('test_token', views.test_token),
+
+NEXT:
+the logic for the apis 
+you would need to map the json objects to entries in the database and this would be serializers
+
+-create serializers.py in server folder  
+
+add this: 
+
+from rest_framework import serializers
+from django.contrib.auth.models import User
+
+class UserSerializer(serializers.ModelSerializer):
+   class Meta(object):
+      model = User
+      fields = ['id', 'username', 'password', 'email']
+
+
+
+THEN go to views:
