@@ -1,0 +1,29 @@
+first create your virtual environment
+- python3 -m venv venv
+- source venv/bin/activate
+
+to double check if the current python is in: 
+- pip install --upgrade pip
+
+then install the dependency
+- pip install django
+
+then add a .gitignore
+
+then to start the django project:
+it basically django-admin startproject **servername** and which directory
+- django-admin startproject server . 
+
+in the server folder: 
+- settings.py and urls.py is important
+- manage.py is the app.js for the motherboard of servers
+
+then
+- python manage.py migrate
+which setsup the database for this app
+
+
+then
+- python manage.py runserver
+
+this the basic of starting a django backend
